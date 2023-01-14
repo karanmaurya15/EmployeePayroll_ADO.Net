@@ -23,3 +23,13 @@ CREATE PROCEDURE SPRetrieveAllDetails
 AS BEGIN 
 SELECT * FROM Employee_payroll
 END
+
+--Update
+CREATE PROCEDURE SPUpdateDataInDB(
+@SurName VARCHAR(30),
+@TypeOfAddressBook VARCHAR(30),
+@Mobile bigint
+)
+AS BEGIN
+UPDATE Address_Book_Table SET Type = @TypeOfAddressBook, PhoneNumber = @Mobile WHERE LastName = @SurName
+END

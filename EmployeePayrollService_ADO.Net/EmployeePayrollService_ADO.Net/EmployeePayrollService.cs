@@ -92,5 +92,35 @@ namespace EmployeePayrollService_ADO.Net
             }
             return null;
         }
+        public string UpdateDataInDatabase(EmployeePayroll employees)
+        {
+            SqlConnection sqlconnection = new SqlConnection(connectionString);
+            try
+            {
+                using (sqlconnection)
+                {
+                    sqlconnection.Open();
+                    SqlCommand command = new SqlCommand("SPUpdateDataInDB", sqlconnection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@EmployeeName", employees.Name);
+                    command.Parameters.AddWithValue("@CompanyName", employees.Address);
+                    command.Parameters.AddWithValue("@PhoneNo", employees.PhoneNumber);
+                    int result = command.ExecuteNonQuery();
+                    sqlconnection.Close();
+                    if (result >= 1)
+                    {
+                        Console.WriteLine("Employee Updated Successfully");
+                    }
+                    else
+                        Console.WriteLine("No DataBase found");
+                }
+                return "Employee Updated Successfully";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
     }
 }

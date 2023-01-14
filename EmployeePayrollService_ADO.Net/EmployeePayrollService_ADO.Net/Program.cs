@@ -8,7 +8,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter the option : 1.AddEmployeePayroll \n 2. RetrieveEntriesFromEmployeePayDB \n 3.Exit :");
+                Console.WriteLine("Enter the option : 1.AddEmployeePayroll \n 2. RetrieveEntriesFromEmployeePayDB \n 3.Update Data Data \n 4.Exit :");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -29,6 +29,15 @@
                         employeePayrollServices.RetrieveEntriesFromEmployeePayDB();
                         break;
                     case 3:
+                        EmployeePayroll employees = new EmployeePayroll()
+                        {
+                            Name = "Karan",
+                            Address = "UP",
+                            PhoneNumber = 67643587876
+                        };
+                        employeePayrollServices.UpdateDataInDatabase(employees);
+                        break;
+                    case 4:
                         flag = false;
                         break;
                 }
