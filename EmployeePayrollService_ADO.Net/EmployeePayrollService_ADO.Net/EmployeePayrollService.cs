@@ -148,7 +148,7 @@ namespace EmployeePayrollService_ADO.Net
             {
                 Console.WriteLine(ex.Message);
             }
-            return null;
+            return String.Empty;
         }
     }
 }

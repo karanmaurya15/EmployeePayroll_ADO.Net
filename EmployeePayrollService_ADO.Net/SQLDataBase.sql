@@ -34,6 +34,7 @@ AS BEGIN
 UPDATE Address_Book_Table SET Type = @TypeOfAddressBook, PhoneNumber = @Mobile WHERE LastName = @SurName
 END
 
+
 --Delete
 CREATE PROCEDURE SPDeleteDataFromDB(
 @LastName VARCHAR(30)
