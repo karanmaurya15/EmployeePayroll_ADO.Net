@@ -39,5 +39,11 @@ namespace PayrollServiceTestProject
             string result = employeePayrollServices.UpdateDataInDatabase(employeePayroll);
             Assert.AreEqual("Employee Updated Successfully", result);
         }
+        [TestMethod]
+        public void GivenEmployeeName_AbleToDeleteDetailsOfEmployeeInfoInDB()
+        {
+            string result = employeePayrollServices.DeleteDataFromDatabase("Karan");
+            Assert.AreEqual("Employee Deleted Successfully", result);
+        }
     }
 }

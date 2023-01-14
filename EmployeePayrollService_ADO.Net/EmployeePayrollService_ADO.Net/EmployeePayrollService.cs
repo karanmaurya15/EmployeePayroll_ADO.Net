@@ -122,5 +122,33 @@ namespace EmployeePayrollService_ADO.Net
             }
             return null;
         }
+        public string DeleteDataFromDatabase(string name)
+        {
+            SqlConnection sqlconnection = new SqlConnection(connectionString);
+            try
+            {
+                using (sqlconnection)
+                {
+                    sqlconnection.Open();
+                    SqlCommand command = new SqlCommand("SPDeleteDataFromDB", sqlconnection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@EmployeeName", name);
+                    int result = command.ExecuteNonQuery();
+                    sqlconnection.Close();
+                    if (result >= 1)
+                    {
+                        Console.WriteLine("Employee Deleted Successfully");
+                    }
+                    else
+                        Console.WriteLine("No DataBase found");
+                }
+                return "Employee Deleted Successfully";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
     }
 }
