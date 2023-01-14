@@ -17,3 +17,9 @@ CREATE PROCEDURE SPAddNewEmployee(
 @PhoneNumber varchar(16),
 @Address VARCHAR(100)
 )
+
+--RectriveData
+CREATE PROCEDURE SPRetrieveAllDetails
+AS BEGIN 
+SELECT * FROM Employee_payroll
+END

@@ -8,7 +8,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter the option : 1.AddEmployeePayroll \n 2.Exit :");
+                Console.WriteLine("Enter the option : 1.AddEmployeePayroll \n 2. RetrieveEntriesFromEmployeePayDB \n 3.Exit :");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -26,6 +26,9 @@
                         employeePayrollServices.AddEmployeeInDB(employee);
                         break;
                     case 2:
+                        employeePayrollServices.RetrieveEntriesFromEmployeePayDB();
+                        break;
+                    case 3:
                         flag = false;
                         break;
                 }
