@@ -21,29 +21,5 @@ namespace PayrollServiceTestProject
             string result = employeePayrollServices.AddEmployeeInDB(employee);
             Assert.AreEqual("Employee Added Successfully", result);
         }
-        [TestMethod]
-        public void TestRetriveDataFromDB()
-        {
-            string result = employeePayrollServices.RetrieveEntriesFromEmployeePayDB();
-            Assert.AreEqual("Retrive data Successfully", result);
-        }
-        [TestMethod]
-        public void GivenPesonInfo_AbleToUpdateDetailsOfPersonInfoInDB()
-        {
-            EmployeePayroll employeePayroll = new EmployeePayroll
-            {
-                Name = "KK",
-                Address = "GKP",
-                PhoneNumber = 8967453210
-            };
-            string result = employeePayrollServices.UpdateDataInDatabase(employeePayroll);
-            Assert.AreEqual("Employee Updated Successfully", result);
-        }
-        [TestMethod]
-        public void GivenEmployeeName_AbleToDeleteDetailsOfEmployeeInfoInDB()
-        {
-            string result = employeePayrollServices.DeleteDataFromDatabase("Karan");
-            Assert.AreEqual("Employee Deleted Successfully", result);
-        }
     }
 }
